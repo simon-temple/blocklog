@@ -14,3 +14,20 @@ I also added auto compression for storing large string data: Byte512
 
 
 It's a solution looking for the right problem... 
+
+```java
+// Open/create the log in the filesystem 
+SecureLog log = new SecureLog("/opt/test.log");
+ 
+// Add your String data to the log
+log.add("1987234912673509193579159719375109345797073547234875");
+ 
+// Dump the log blocks to stdout
+log.dump();
+
+// Test the log has not been messed with
+Assert.assertTrue(log.isValid());
+
+// Close it
+log.close();
+```
